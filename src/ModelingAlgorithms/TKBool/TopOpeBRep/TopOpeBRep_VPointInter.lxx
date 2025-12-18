@@ -1,0 +1,210 @@
+// Created on: 1993-11-10
+// Created by: Jean Yves LEBEY
+// Copyright (c) 1993-1999 Matra Datavision
+// Copyright (c) 1999-2014 OPEN CASCADE SAS
+//
+// This file is part of Open CASCADE Technology software library.
+//
+// This library is free software; you can redistribute it and/or modify it under
+// the terms of the GNU Lesser General Public License version 2.1 as published
+// by the Free Software Foundation, with special exception defined in the file
+// OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+// distribution for complete text of the license and disclaimer of any warranty.
+//
+// Alternatively, this file may be used under the terms of Open CASCADE
+// commercial license or contractual agreement.
+
+#include <IntPatch_Point.hxx>
+
+//=================================================================================================
+
+inline TopOpeBRep_VPointInter::TopOpeBRep_VPointInter()
+    : myPPOI(NULL),
+      myShapeIndex(0),
+      myState1(TopAbs_UNKNOWN),
+      myState2(TopAbs_UNKNOWN),
+      myKeep(Standard_False),
+      myEdgeONPar1(0.),
+      myEdgeONPar2(0.),
+      myIndex(0),
+      myS1(0),
+      myS2(0)
+{
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::SetShapes(const Standard_Integer I1, const Standard_Integer I2)
+{
+  myS1 = I1;
+  myS2 = I2;
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::GetShapes(Standard_Integer& I1, Standard_Integer& I2) const
+{
+  I1 = myS1;
+  I2 = myS2;
+}
+
+//=================================================================================================
+
+inline IntSurf_Transition TopOpeBRep_VPointInter::TransitionOnS1() const
+{
+  return myPPOI->TransitionOnS1();
+}
+
+//=================================================================================================
+
+inline IntSurf_Transition TopOpeBRep_VPointInter::TransitionOnS2() const
+{
+  return myPPOI->TransitionOnS2();
+}
+
+//=================================================================================================
+
+inline IntSurf_Transition TopOpeBRep_VPointInter::TransitionLineArc1() const
+{
+  return myPPOI->TransitionLineArc1();
+}
+
+//=================================================================================================
+
+inline IntSurf_Transition TopOpeBRep_VPointInter::TransitionLineArc2() const
+{
+  return myPPOI->TransitionLineArc2();
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::IsOnDomS1() const
+{
+  return myPPOI->IsOnDomS1();
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::IsOnDomS2() const
+{
+  return myPPOI->IsOnDomS2();
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::ParametersOnS1(Standard_Real& u, Standard_Real& v) const
+{
+  myPPOI->ParametersOnS1(u, v);
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::ParametersOnS2(Standard_Real& u, Standard_Real& v) const
+{
+  myPPOI->ParametersOnS2(u, v);
+}
+
+//=================================================================================================
+
+inline const gp_Pnt& TopOpeBRep_VPointInter::Value() const
+{
+  return myPPOI->Value();
+}
+
+//=================================================================================================
+
+inline Standard_Real TopOpeBRep_VPointInter::Tolerance() const
+{
+  return myPPOI->Tolerance();
+}
+
+//=================================================================================================
+
+inline Standard_Real TopOpeBRep_VPointInter::ParameterOnLine() const
+{
+  return myPPOI->ParameterOnLine();
+}
+
+//=================================================================================================
+
+inline Standard_Real TopOpeBRep_VPointInter::ParameterOnArc1() const
+{
+  return myPPOI->ParameterOnArc1();
+}
+
+//=================================================================================================
+
+inline Standard_Real TopOpeBRep_VPointInter::ParameterOnArc2() const
+{
+  return myPPOI->ParameterOnArc2();
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::IsVertexOnS1() const
+{
+  return myPPOI->IsVertexOnS1();
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::IsVertexOnS2() const
+{
+  return myPPOI->IsVertexOnS2();
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::IsMultiple() const
+{
+  return myPPOI->IsMultiple();
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::IsInternal() const
+{
+  return Standard_False;
+}
+
+//=================================================================================================
+
+inline Standard_Integer TopOpeBRep_VPointInter::ShapeIndex() const
+{
+  return myShapeIndex;
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::ShapeIndex(const Standard_Integer I)
+{
+  myShapeIndex = I;
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRep_VPointInter::Keep() const
+{
+  return myKeep;
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::ChangeKeep(const Standard_Boolean keep)
+{
+  myKeep = keep;
+}
+
+//=================================================================================================
+
+inline void TopOpeBRep_VPointInter::Index(const Standard_Integer I)
+{
+  myIndex = I;
+}
+
+//=================================================================================================
+
+inline Standard_Integer TopOpeBRep_VPointInter::Index() const
+{
+  return myIndex;
+}

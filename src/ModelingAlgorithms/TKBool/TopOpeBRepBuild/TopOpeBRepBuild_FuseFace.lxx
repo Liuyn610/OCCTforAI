@@ -1,0 +1,98 @@
+// Created on: 1998-07-30
+// Created by: LECLERE Florence
+// Copyright (c) 1998-1999 Matra Datavision
+// Copyright (c) 1999-2014 OPEN CASCADE SAS
+//
+// This file is part of Open CASCADE Technology software library.
+//
+// This library is free software; you can redistribute it and/or modify it under
+// the terms of the GNU Lesser General Public License version 2.1 as published
+// by the Free Software Foundation, with special exception defined in the file
+// OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+// distribution for complete text of the license and disclaimer of any warranty.
+//
+// Alternatively, this file may be used under the terms of Open CASCADE
+// commercial license or contractual agreement.
+
+#include <StdFail_NotDone.hxx>
+
+//=================================================================================================
+
+inline TopOpeBRepBuild_FuseFace::TopOpeBRepBuild_FuseFace()
+    : myInternal(Standard_False),
+      myModified(Standard_False),
+      myDone(Standard_False)
+{
+}
+
+//=================================================================================================
+
+inline TopOpeBRepBuild_FuseFace::TopOpeBRepBuild_FuseFace(const TopTools_ListOfShape& LIF,
+                                                          const TopTools_ListOfShape& LRF,
+                                                          const Standard_Integer      CXM)
+{
+  Init(LIF, LRF, CXM);
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRepBuild_FuseFace::IsDone() const
+{
+  return myDone;
+}
+
+//=================================================================================================
+
+inline Standard_Boolean TopOpeBRepBuild_FuseFace::IsModified() const
+{
+  return myModified;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LFuseFace() const
+{
+  return myLFF;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LInternEdge() const
+{
+  return myLIE;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LExternEdge() const
+{
+  return myLEE;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LModifEdge() const
+{
+  return myLME;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LInternVertex() const
+{
+  return myLIV;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LExternVertex() const
+{
+  return myLEV;
+}
+
+//=================================================================================================
+
+inline const TopTools_ListOfShape& TopOpeBRepBuild_FuseFace::LModifVertex() const
+{
+  return myLMV;
+}
